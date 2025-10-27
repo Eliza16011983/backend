@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret")
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
@@ -46,6 +46,8 @@ ROOT_URLCONF = 'core.urls'
 DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
 
 CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:5500","http://localhost:5500"]
+
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:5500","http://localhost:5500"]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
